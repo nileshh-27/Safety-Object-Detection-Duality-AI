@@ -22,8 +22,7 @@
 7.  [**Usage Instructions**](#-usage-instructions)
     * [Running Predictions](#running-predictions)
     * [Re-training the Model](#re-training-the-model)
-8.  [**Project File Structure**](#-project-file-structure)
-9.  [**(Bonus) Use Case Application**](#bonus-use-case-application)
+8.  [**Use Case Application**](#bonus-use-case-application)
 
 ---
 
@@ -230,8 +229,6 @@ python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.00
 
 
 ## ✨ (Bonus) Use Case Application
-
-_[**This is a placeholder for your bonus application. Describe your app in detail here.**]_
 
 **1. Application Concept:**
 We developed a proof-of-concept monitoring application using Python and OpenCV. The application processes a video stream and uses our trained YOLOv8s model to detect and flag safety equipment in real-time. A visual overlay is drawn on the video feed, highlighting each detected object with a bounding box and a confidence score.
