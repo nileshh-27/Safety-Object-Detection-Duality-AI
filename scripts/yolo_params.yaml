@@ -1,0 +1,8 @@
+# Paths for Google Colab Environment
+train: #path to your training images
+val: #path to your val images
+test: #path to your testing images
+
+# --- Class configuration ---
+nc: 7
+names: ['OxygenTank', 'NitrogenTank', 'FirstAidBox', 'FireAlarm', 'SafetySwitchPanel', 'EmergencyPhone', 'FireExtinguisher']
