@@ -105,8 +105,62 @@ We analyzed specific prediction errors to understand the model's limitations.
 
 ## ⚙️ Setup and Installation
 **This Model was trained on a Google Collab NoteBook rather than on Anaconda Environment, thus instructions for both the methods have been given below.**
+
 **Google Collab** : 
-1.Upload all the entire scripts file consisting of train.py, Predict.py, Visualize.py(Note : Visualize.py might not work on Google Collab due to the openCV restrictions in a cloud environment, thus it is advisable that the entire visualization of predicted images is to be done in either VS Code or Anaconda Environment.
+
+1.Create a new Notebook in Google Collab, and run the below Python Script in a new Cell.
+```bash
+from google.colab import drive
+drive.mount('/content/drive')
+```
+This will ensure that your drive is being used as a storage for saving, running all the scripts.
+
+2.Now Create a new Folder in your Drive and name it according to your preference, and run the below Script in a new Cell.
+```bash
+# Go to your project folder
+%cd /content/drive/MyDrive/Your_folder_name.
+```
+
+3. Now lets upload all the required scripts and dataset(containing train and test images, labels).
+
+   Create the folder structure as shown below and according based on the structure 
+***Note:
+   use ```!cd``` and ```!cd ..``` to move in and out of folders.***
+   
+   ```
+.
+├── Duality_Hackathon/
+│   ├── dataset/
+│   │   ├── train/
+│   │   └── val/
+│   ├── runs/
+│   │   └── train/
+│   │       └── exp2/
+│   │           ├── weights/
+│   │           │   └── best.pt   <-- Our final trained model
+│   │           └── ... (all result graphs)
+│   ├── scripts/
+│   │   ├── train.py
+│   │   ├── predict.py
+│   │   └── yolo_params.yaml
+│   └── README.md
+└── ...
+```
+
+   And run the below Script in a new cell, this will open a window where you can directly upload all the necessary files directly in the file
+***Note:
+   The Folder in which you want to upload the specific file/script must be selected in advance using the ```cd``` command.***
+   
+```bash
+from google.colab import files
+uploaded = files.upload()
+```
+
+   
+2.Upload all the entire scripts file consisting of train.py, Predict.py, Visualize.py(Note : Visualize.py might not work on Google Collab due to the openCV restrictions in a cloud environment, thus it is advisable that the entire visualization of predicted images is to be done in either VS Code or Anaconda Environment.
+
+
+2.
 
 
 1.  **Clone the Repository:**
@@ -154,28 +208,6 @@ python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.00
 ```
 
 ---
-
-## 📁 Project File Structure
-
-```
-.
-├── Duality_Hackathon/
-│   ├── dataset/
-│   │   ├── train/
-│   │   └── val/
-│   ├── runs/
-│   │   └── train/
-│   │       └── exp2/
-│   │           ├── weights/
-│   │           │   └── best.pt   <-- Our final trained model
-│   │           └── ... (all result graphs)
-│   ├── scripts/
-│   │   ├── train.py
-│   │   ├── predict.py
-│   │   └── yolo_params.yaml
-│   └── README.md
-└── ...
-```
 
 ---
 
