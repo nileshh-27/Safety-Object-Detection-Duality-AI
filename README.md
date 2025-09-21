@@ -260,7 +260,7 @@ pip install ultralytics gradio
 python SIMS.py
 ```
 
-**3. Model Maintenance with Falcon:**
+## Model Maintenance with Falcon:**
 To keep the model up-to-date in a real-world scenario, Duality AI's Falcon platform would be essential. If a new piece of equipment is added to the space station, or existing equipment is redesigned, we could:
 1.  **Update the Digital Twin:** Add or modify the 3D models of the equipment within the Falcon simulation.
 2.  **Generate New Synthetic Data:** Use Falcon to generate thousands of new, perfectly labeled training images of the new/modified equipment under diverse conditions (lighting, angles, occlusions).
