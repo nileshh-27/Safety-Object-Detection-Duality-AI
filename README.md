@@ -1,6 +1,6 @@
 # Duality AI's Space Station Challenge: Safety Object Detection
 
-**Team Name:** [**Your Team Name Here**]
+**Team Name:** Promptify
 **Final mAP@0.5 Score:** **72.6%**
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue.svg)
