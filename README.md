@@ -167,16 +167,39 @@ uploaded = files.upload()
 
 open the ```yolo_params.yaml``` file in Google Collab and add the directories for the dataset.
 
+### Training the Model
+
 5.To train the model we need a gpu which can be selected as runtime in collab, Select the Tensor T4 GPU (or if using Collab pro use Nvidia A100 GPU for much faster and efficient training of the model), Once the runtime has been selected run the below script in a new cell.
 
 ```bash
-!python train.py
+# If required you can change the params below based on the usecase.
+!python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.001
+```
+### Running Predictions
+
+To evaluate our final model and reproduce the **72.6% mAP@0.5** score, navigate to the `scripts` directory and run `predict.py`.
+
+**Note:** Ensure the `runs` directory from our submission is located at the root of the project folder, one level above the `scripts` directory.
+
+```bash
+cd scripts
+python predict.py
 ```
 
-or to predict using the model use the below script.
+The script will output the final metrics to the console and save prediction images in the `scripts/predictions/` folder.
+
+### Re-training the Model
+
+The full training process can be replicated by running the `train.py` script from the `scripts` directory.
+
 ```bash
-!python predict.py
+cd scripts
+python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.001
 ```
+
+*** All the predict/train results will be stored in a seperate folder named ```runs``` or ```train``` in the scripts folder, Additionally the train.py uses Yolo model thus when ever the script detects that the model is either overfitting or underfitting, an instance of most effective performing model is saved as ```best.pt``` in the runs\weights.
+
+***Ananconda Enviromment***:
 
 1.  **Clone the Repository:**
     ```bash
@@ -200,27 +223,7 @@ or to predict using the model use the below script.
 
 ## 🚀 Usage Instructions
 
-### Running Predictions
 
-To evaluate our final model and reproduce the **72.6% mAP@0.5** score, navigate to the `scripts` directory and run `predict.py`.
-
-**Note:** Ensure the `runs` directory from our submission is located at the root of the project folder, one level above the `scripts` directory.
-
-```bash
-cd scripts
-python predict.py
-```
-
-The script will output the final metrics to the console and save prediction images in the `scripts/predictions/` folder.
-
-### Re-training the Model
-
-The full training process can be replicated by running the `train.py` script from the `scripts` directory.
-
-```bash
-cd scripts
-python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.001
-```
 
 ---
 
@@ -242,4 +245,3 @@ To keep the model up-to-date in a real-world scenario, Duality AI's Falcon platf
 2.  **Generate New Synthetic Data:** Use Falcon to generate thousands of new, perfectly labeled training images of the new/modified equipment under diverse conditions (lighting, angles, occlusions).
 3.  **Fine-tune the Model:** Use this new synthetic data to quickly fine-tune our existing model, teaching it to recognize the new objects without requiring costly and time-consuming real-world data collection.
 
-**[Link to Video Demonstration]**
