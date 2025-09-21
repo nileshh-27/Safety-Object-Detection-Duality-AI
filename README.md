@@ -22,7 +22,8 @@
 7.  [**Usage Instructions**](#-usage-instructions)
     * [Running Predictions](#running-predictions)
     * [Re-training the Model](#re-training-the-model)
-8.  [**Use Case Application**](#bonus-use-case-application)
+8.  [**Use Case Application**](#(Bonus)-Use-Case-Application).
+9.  [**Model Maintenance with Falcon**](#Model-Maintenance-with-Falcon)
 
 ---
 
