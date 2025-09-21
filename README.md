@@ -84,7 +84,7 @@ _The normalized confusion matrix visualizes the model's per-class accuracy and i
 
 We analyzed specific prediction errors to understand the model's limitations.
 
-* **False Negatives (Missed Detections):** The most common error was the model failing to detect an object and classifying it as background. The confusion matrix shows this was a particular issue for `EmergencyPhone` (38% missed) and `FireExtinguisher` (37% missed). This can happen in low-light conditions or when an object is heavily occluded.
+***False Negatives (Missed Detections):** The most common error was the model failing to detect an object and classifying it as background. The confusion matrix shows this was a particular issue for `EmergencyPhone` (38% missed) and `FireExtinguisher` (37% missed). This can happen in low-light conditions or when an object is heavily occluded.
     * **Example:** ![Missed Objects](scripts/predictions/images/000000136_vlight_uncluttered.png)
     * ![Missed Objects]<img width="1410" height="866" alt="Screenshot 2025-09-21 193642" src="https://github.com/user-attachments/assets/47b7dee5-8ff3-4ccc-aac7-b06094808e77" />
     * Here as you can see in the first image the Objects which were in the focus point have been detected with high accuracy, but as seen in the second image 2 objects(First Aid Box and a Emergency Phone) have been completely missed.
@@ -231,7 +231,25 @@ python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.00
 ## ✨ (Bonus) Use Case Application
 
 **1. Application Concept:**
-We developed a proof-of-concept monitoring application using Python and OpenCV. The application processes a video stream and uses our trained YOLOv8s model to detect and flag safety equipment in real-time. A visual overlay is drawn on the video feed, highlighting each detected object with a bounding box and a confidence score.
+<p align="center">
+  <figure style="display:inline-block; margin: 0 10px;">
+    <img src="https://github.com/user-attachments/assets/2bea80e5-cb89-4f77-bb63-f51366b23a3e" alt="Upload Tab" width="48%" />
+    <figcaption align="center">Upload Tab</figcaption>
+  </figure>
+  <figure style="display:inline-block; margin: 0 10px;">
+    <img src="https://github.com/user-attachments/assets/bf062187-251d-41fb-acd8-64255aeaeb55" alt="Video Tab" width="48%" />
+    <figcaption align="center">Video Tab</figcaption>
+  </figure>
+</p>
+
+• As a bonus task, we have implemented a SIMS, or Safety and Inventory Management System.
+• This is a proof-of-concept application designed to demonstrate a real-world use case for our trained
+object detection model.
+• The system addresses the critical need for automated, persistent monitoring of essential safety
+equipment in a high-stakes environment like a space station, where manual checks are timeconsuming and prone to human error.
+• Our prototype, built with Python and OpenCV, processes a video feed to perform real-time
+detection, maintain a live on-screen inventory of all 7 safety classes, and generate intelligent alerts
+for missing critical items
 
 **2. Implementation Details:**
 The application is built as a single Python script. It loads the `best.pt` model weights and uses a `while` loop to read frames from a video file. Each frame is passed to the model for inference. The results are then used to draw visualizations on the frame before it's displayed on the screen.
