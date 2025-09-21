@@ -254,6 +254,12 @@ for missing critical items
 **2. Implementation Details:**
 The application is built as a single Python script. It loads the `best.pt` model weights and uses a `while` loop to read frames from a video file. Each frame is passed to the model for inference. The results are then used to draw visualizations on the frame before it's displayed on the screen.
 
+To run SIMS, run the below script in the terminal or in a new cell if using Google Scholar.
+```
+pip install ultralytics gradio
+python SIMS.py
+```
+
 **3. Model Maintenance with Falcon:**
 To keep the model up-to-date in a real-world scenario, Duality AI's Falcon platform would be essential. If a new piece of equipment is added to the space station, or existing equipment is redesigned, we could:
 1.  **Update the Digital Twin:** Add or modify the 3D models of the equipment within the Falcon simulation.
