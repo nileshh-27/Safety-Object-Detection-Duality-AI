@@ -29,15 +29,17 @@
 
 ## 📝 Project Overview
 
-This project is a submission for the Duality AI's Space Station Challenge. The core task was to train a high-performing object detection model to identify 7 critical safety items in a synthetic space station environment. [cite_start]Ensuring the correct identification of equipment like oxygen tanks and fire extinguishers is a mission-critical capability for ensuring operational safety and crew well-being in isolated environments like a space station[cite: 9].
+This project is a submission for the Duality AI's Space Station Challenge. The core task was to train a high-performing object detection model to identify 7 critical safety items in a synthetic space station environment. Ensuring the correct identification of equipment like oxygen tanks and fire extinguishers is a mission-critical capability for ensuring operational safety and crew well-being in isolated environments like a space station.
 
-[cite_start]We utilized the provided synthetic dataset generated from Duality AI's Falcon platform, which included challenging scenarios with varied lighting, object occlusions, and diverse camera angles[cite: 4, 12]. Our approach involved using the YOLOv8s architecture, carefully monitoring the training process to achieve optimal performance, and conducting a thorough analysis of the model's strengths and weaknesses.
+We utilized the provided synthetic dataset of over 1500 images generated from Duality AI's Falcon platform, which included challenging scenarios with varied lighting, object occlusions, and diverse camera angles. Our approach involved using the YOLOv8s architecture, carefully monitoring the training process to achieve optimal performance, and conducting a thorough analysis of the model's strengths and weaknesses.
+
+And additionally to further enhance the model to detect the objects in complex scenarios, we have also augumented the data in several conditions(like more image noise, less contrast, more contrast, bright vs dim image etc). 
 
 ---
 
 ## ✨ Key Features
 
-* **High-Performance Model:** Achieved a final score of **72.6% mAP@0.5**, significantly outperforming the 40-50% baseline established for the hackathon.
+* **High-Performance Model:** Achieved a final score of **72.6% mAP@0.5**, significantly outperforming the 40-50% baseline.
 * **Robust Detection:** The model demonstrates strong performance in identifying key objects like `OxygenTank` and `SafetySwitchPanel` with high precision.
 * **Detailed Error Analysis:** A comprehensive analysis of model failures, including missed detections and misclassifications, providing a clear path for future improvements.
 * **Reproducible Workflow:** The project is structured with clear scripts and instructions, allowing for easy reproduction of our final results.
@@ -46,11 +48,11 @@ This project is a submission for the Duality AI's Space Station Challenge. The c
 
 ## 🏆 Final Results & Performance
 
-Our model was evaluated on the provided validation dataset. The key performance metric is Mean Average Precision at an IoU threshold of 0.5 (mAP@0.5).
+Our model was evaluated on the provided test dataset. The key performance metric is Mean Average Precision at an IoU threshold of 0.5 (mAP@0.5).
 
 **Overall mAP@0.5: 72.6%**
 
-![Precision-Recall Curve](runs/train/exp2/BoxPR_curve.png)
+![Precision-Recall Curve](scripts/runs/detect/val/BoxPR_curve.png)
 _The Precision-Recall curve shows the model's performance across all classes, with the overall mAP score highlighted._
 
 ### Per-Class mAP Scores
@@ -71,7 +73,7 @@ _The Precision-Recall curve shows the model's performance across all classes, wi
 
 A deeper analysis of the results reveals specific areas where the model excels and struggles.
 
-![Normalized Confusion Matrix](runs/train/exp2/confusion_matrix_normalized.png)
+![Normalized Confusion Matrix](scripts/runs/detect/val/confusion_matrix_normalized.png)
 _The normalized confusion matrix visualizes the model's per-class accuracy and its specific misclassifications._
 
 ### Performance by Class
@@ -84,7 +86,9 @@ _The normalized confusion matrix visualizes the model's per-class accuracy and i
 We analyzed specific prediction errors to understand the model's limitations.
 
 * **False Negatives (Missed Detections):** The most common error was the model failing to detect an object and classifying it as background. The confusion matrix shows this was a particular issue for `EmergencyPhone` (38% missed) and `FireExtinguisher` (37% missed). This can happen in low-light conditions or when an object is heavily occluded.
-    * **Example:** _[Insert an image from your `predictions/images` folder showing a missed object and briefly describe it here.]_
+    * **Example:** ![Missed Objects](scripts/predictions/images/000000136_vlight_uncluttered.png)
+    * ![Missed Objects]<img width="1410" height="866" alt="Screenshot 2025-09-21 193642" src="https://github.com/user-attachments/assets/47b7dee5-8ff3-4ccc-aac7-b06094808e77" />
+    * Here as you can see in the first image the Objects which were in the focus point have been detected with high accuracy, but as seen in the second image 2 objects(First Aid Box and a Emergency Phone) have been completely missed.
 * **Misclassifications:** While less common, the model occasionally confused similar-looking objects.
     * **Example:** A `FirstAidBox` was sometimes misclassified as a `FireAlarm` (5% of the time), likely due to both being red and box-shaped. _[If you find an example image, insert it here.]_
 
