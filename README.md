@@ -90,8 +90,7 @@ We analyzed specific prediction errors to understand the model's limitations.
     * ![Missed Objects]<img width="1410" height="866" alt="Screenshot 2025-09-21 193642" src="https://github.com/user-attachments/assets/47b7dee5-8ff3-4ccc-aac7-b06094808e77" />
     * Here as you can see in the first image the Objects which were in the focus point have been detected with high accuracy, but as seen in the second image 2 objects(First Aid Box and a Emergency Phone) have been completely missed.
 * **Misclassifications:** While less common, the model occasionally confused similar-looking objects.
-    * **Example:** A `FirstAidBox` was sometimes misclassified as a `FireAlarm` (5% of the time), likely due to both being red and box-shaped. _[If you find an example image, insert it here.]_
-
+    * **Example:** In Some Specific cases the `Safety Switch Panel` has been wrongly misclassified with a white wall as both carry the same color color. ![Misclassified Safety Swtich Panel](scripts/predictions/images/000000340_vlight_uncluttered.png)
 ---
 
 ## 💻 Technology Stack
@@ -105,6 +104,10 @@ We analyzed specific prediction errors to understand the model's limitations.
 ---
 
 ## ⚙️ Setup and Installation
+**This Model was trained on a Google Collab NoteBook rather than on Anaconda Environment, thus instructions for both the methods have been given below.**
+**Google Collab** : 
+1.Upload all the entire scripts file consisting of train.py, Predict.py, Visualize.py(Note : Visualize.py might not work on Google Collab due to the openCV restrictions in a cloud environment, thus it is advisable that the entire visualization of predicted images is to be done in either VS Code or Anaconda Environment.
+
 
 1.  **Clone the Repository:**
     ```bash
