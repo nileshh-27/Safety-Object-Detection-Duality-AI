@@ -127,8 +127,7 @@ This will ensure that your drive is being used as a storage for saving, running 
 ***Note:
    use ```!cd``` and ```!cd ..``` to move in and out of folders.***
    
-   ```
-.
+```
 ├── Duality_Hackathon/
 │   ├── dataset/
 │   │   ├── train/
@@ -144,7 +143,7 @@ This will ensure that your drive is being used as a storage for saving, running 
 │   │   ├── predict.py
 │   │   └── yolo_params.yaml
 │   └── README.md
-└── ...
+└── 
 ```
 
    And run the below Script in a new cell, this will open a window where you can directly upload all the necessary files directly in the file
@@ -156,12 +155,28 @@ from google.colab import files
 uploaded = files.upload()
 ```
 
-   
 2.Upload all the entire scripts file consisting of train.py, Predict.py, Visualize.py(Note : Visualize.py might not work on Google Collab due to the openCV restrictions in a cloud environment, thus it is advisable that the entire visualization of predicted images is to be done in either VS Code or Anaconda Environment.
 
+3.Since ***PyTorch*** and ***OpenCV*** are an inbuilt packages in Google Collab we dont need to install them as dependencies, But the Ultralytics and dependencies for Yolo Model need to be installed which can be done by running the below script in a new cell.
+```bash
+# Ultralytics will pull in PyTorch and other core libraries.
+!pip install ultralytics opencv-contrib-python pyyaml
+```
 
-2.
+4.Now to last step before we train/predict using the model, We have to set the specific directory of the dataset for train and test in the ```yolo_params.yaml```
 
+open the ```yolo_params.yaml``` file in Google Collab and add the directories for the dataset.
+
+5.To train the model we need a gpu which can be selected as runtime in collab, Select the Tensor T4 GPU (or if using Collab pro use Nvidia A100 GPU for much faster and efficient training of the model), Once the runtime has been selected run the below script in a new cell.
+
+```bash
+!python train.py
+```
+
+or to predict using the model use the below script.
+```bash
+!python predict.py
+```
 
 1.  **Clone the Repository:**
     ```bash
