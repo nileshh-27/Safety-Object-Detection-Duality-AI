@@ -167,6 +167,13 @@ uploaded = files.upload()
 
 open the ```yolo_params.yaml``` file in Google Collab and add the directories for the dataset.
 
+
+## 🚀 Usage Instructions
+
+
+
+---
+
 ### Training the Model
 
 5.To train the model we need a gpu which can be selected as runtime in collab, Select the Tensor T4 GPU (or if using Collab pro use Nvidia A100 GPU for much faster and efficient training of the model), Once the runtime has been selected run the below script in a new cell.
@@ -221,13 +228,6 @@ python train.py --epochs 100 --batch 8 --mosaic 0.5 --optimizer AdamW --lr0 0.00
 
 ---
 
-## 🚀 Usage Instructions
-
-
-
----
-
----
 
 ## ✨ (Bonus) Use Case Application
 
