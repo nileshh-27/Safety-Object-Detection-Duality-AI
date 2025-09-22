@@ -1,7 +1,10 @@
 # Duality AI's Space Station Challenge: Safety Object Detection
 
 **Team Name:** Promptify
-**Final mAP@0.5 Score:** **72.6%**
+
+**Final mAP@0.5 Score:** **80.1%**
+
+***Link for Hackathon Report : https://github.com/nileshh-27/Safety-Object-Detection-Duality-AI/blob/main/Duality%20AI-%20Space%20Object%20Detection_Promptify.pdf***
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue.svg)
 ![Framework](https://img.shields.io/badge/Framework-PyTorch-orange.svg)
